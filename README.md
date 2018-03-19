@@ -35,7 +35,13 @@
     python migrate.py db upgrade
 
 
+## appium
 
+    export ANDROID_HOME="/Users/ethan.zhang/Library/Android/sdk"
+    export PATH=$ANDROID_HOME/platform-tools:$PATH
+    export PATH=$ANDROID_HOME/tools:$PATH
+    export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-9.0.4.jdk/Contents/Home"
+    export PATH=$JAVA_HOME/bin:$PATH
 
 
 
