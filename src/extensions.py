@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-    应用扩展
+应用扩展
 """
 
 from celery import Celery

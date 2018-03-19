@@ -2,6 +2,8 @@ import os
 from time import sleep
 import unittest
 from appium import webdriver
+from src.models.hub import Hub
+from src.models.device import Device
 
 # Returns abs path relative to this file and not cwd
 PATH = lambda p: os.path.abspath(
@@ -12,15 +14,20 @@ PATH = lambda p: os.path.abspath(
 class SimpleAndroidTests(unittest.TestCase):
 
     def setUp(self):
+        hub = Hub.query.get(3)
+        device = Device.query.get(3)
         desired_caps = {}
-        desired_caps['platformName'] = 'Android'
-        desired_caps['platformVersion'] = 'P'
-        desired_caps['deviceName'] = 'Android Emulator'
+        desired_caps['platformName'] = device.platform
+        desired_caps['platformVersion'] = device.platform_version
+        desired_caps['deviceName'] = device.name
         desired_caps['app'] = PATH(
             '../../../bundle/ApiDemos-debug.apk'
         )
 
-        self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+        hub_url = hub.url + ":" + str(hub.port) + hub.path
+
+        # self.driver = webdriver.Remote('http://127.0.0.1:4723/wd/hub', desired_caps)
+        self.driver = webdriver.Remote(hub_url, desired_caps)
 
     def tearDown(self):
         # end the session

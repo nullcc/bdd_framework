@@ -3,6 +3,7 @@
 
 from flask import Blueprint, render_template
 from ..utils.http import success
+# from src.models.hub import Hub
 
 bp = Blueprint('', __name__)
 prefix = ''
@@ -73,3 +74,11 @@ def android():
     print out.decode('utf-8')
 
     return success()
+
+
+# @bp.route('/hubs', methods=['GET'])
+# def hubs():
+#     # hubs = Hub.all_hubs()
+#     # hubs = [hub.to_dict() for hub in hubs]
+#     # return success(data=hubs)
+#     return success()

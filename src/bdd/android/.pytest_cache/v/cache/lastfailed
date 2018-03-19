@@ -1,1 +1,5 @@
-{}
+{
+  "android_simple1.py::SimpleAndroidTests::test_find_elements": true, 
+  "android_simple1.py::SimpleAndroidTests::test_simple_actions": true, 
+  "android_simple_27.py::SimpleAndroidTests::test_find_elements": true
+}

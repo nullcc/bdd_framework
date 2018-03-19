@@ -270,12 +270,12 @@ def configure_db(app):
     :param app:
     :return:
     """
-    from src.database import init_db, db_session
-    init_db()
-
-    @app.teardown_request
-    def shutdown_session(exception=None):
-        db_session.remove()
+    # from src.database import init_db, db_session
+    # # init_db()
+    #
+    # @app.teardown_request
+    # def shutdown_session(exception=None):
+    #     db_session.remove()
 
 
 def configure_logging(app):
